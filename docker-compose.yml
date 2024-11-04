@@ -1,0 +1,39 @@
+version: "3.8"  # Use an appropriate Docker Compose version
+
+services:
+  app:
+    container_name: "sf-ocr"
+    build:
+      context: .
+      dockerfile: Dockerfile  # Specify your Dockerfile name if not using the default "Dockerfile"
+    command: uvicorn src.main:app --host 0.0.0.0 --port 5000  # Adjust the command to match your FastAPI application setup
+    stdin_open: true
+    tty: true
+    ports:
+      - 5000:5000
+
+  redis:
+    #image: redis:6.0.7
+    image: redis:alpine
+    container_name: ocr-redis
+    restart: always
+    volumes:
+      - redis_volume_data:/data
+    ports:
+      - 6379:6379
+
+  rq-worker:
+    container_name: ocr-worker
+    build:
+      context: ./
+      dockerfile: Dockerfile  # Specify the Dockerfile for your RQ worker
+    
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      
+    command: rq worker --url redis://redis:6379/0 ocr_queue_dev
+    depends_on:
+      - redis
+
+volumes:
+  redis_volume_data:
