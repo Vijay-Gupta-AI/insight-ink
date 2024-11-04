@@ -12,28 +12,3 @@ services:
     ports:
       - 5000:5000
 
-  redis:
-    #image: redis:6.0.7
-    image: redis:alpine
-    container_name: ocr-redis
-    restart: always
-    volumes:
-      - redis_volume_data:/data
-    ports:
-      - 6379:6379
-
-  rq-worker:
-    container_name: ocr-worker
-    build:
-      context: ./
-      dockerfile: Dockerfile  # Specify the Dockerfile for your RQ worker
-    
-    environment:
-      - REDIS_URL=redis://redis:6379/0
-      
-    command: rq worker --url redis://redis:6379/0 ocr_queue_dev
-    depends_on:
-      - redis
-
-volumes:
-  redis_volume_data:
