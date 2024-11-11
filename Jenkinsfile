@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'docker:latest' }
+    }
 
     environment {
         // Define your Heroku app name and GitHub repo name
