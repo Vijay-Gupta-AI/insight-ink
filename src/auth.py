@@ -5,10 +5,6 @@ import jwt
 from jwt.exceptions import ExpiredSignatureError, PyJWTError,InvalidTokenError
 import dotenv,os
 from fastapi import HTTPException, status
-#==>For Docker
-dotenv.load_dotenv('system.env')
-SECRET_KEY = os.environ.get('SECRET_KEY')
-API_KEY = os.environ.get('API_KEY')
 
 #==>For Heroku
 # SECRET_KEY = os.environ['SECRET_KEY']
