@@ -6,16 +6,11 @@ import os
 import dotenv
 from src.logger import logger
 
-# Load environment variables or use your preferred method for configuration
-#Local Use
-dotenv.load_dotenv('system.env')
-AWS_Access_Key_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_Secret_Access_Key = os.environ.get('AWS_SECRET_ACCESS_KEY')
-Region = os.environ.get('REGION_NAME')
+
 #Heroku Use
-# AWS_Access_Key_ID = os.environ['AWS_ACCESS_KEY_ID']
-# AWS_Secret_Access_Key = os.environ['AWS_SECRET_ACCESS_KEY']
-# Region = os.environ['REGION_NAME']
+AWS_Access_Key_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_Secret_Access_Key = os.environ['AWS_SECRET_ACCESS_KEY']
+Region = os.environ['REGION_NAME']
 
 
 
