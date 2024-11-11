@@ -7,18 +7,13 @@ from fastapi import HTTPException
 from src.logger import logger  
 from src.s3 import get_s3_client
 
-# Load environment variables
-dotenv.load_dotenv('system.env')
-Bucket = os.environ.get('BUCKET')
-output_prefix = os.environ.get('OUT_PREFIX')
-del_input_flag = os.environ.get('DEL_INPUT')
-input_prefix=os.environ.get('PREFIX')
+
 #==>For Heroku
 
-# Bucket = os.environ['BUCKET']
-# output_prefix = os.environ['OUT_PREFIX']
-# del_input_flag = os.environ['DEL_INPUT']
-# input_prefix=os.environ['PREFIX']
+Bucket = os.environ['BUCKET']
+output_prefix = os.environ['OUT_PREFIX']
+del_input_flag = os.environ['DEL_INPUT']
+input_prefix=os.environ['PREFIX']
 
 def list_objects_to_delete(s3, Bucket_name, folder_prefix):
     objects_to_delete = []
