@@ -11,11 +11,7 @@ import json
 from src.logger import logger
 app = FastAPI()
 
-#==>> Load environment variables for Local Use
-dotenv.load_dotenv('system.env')
-Bucket = os.environ.get('BUCKET')
-input_prefix = os.environ.get('PREFIX')
-output_prefix = os.environ.get('OUT_PREFIX')         
+       
 #==>> Load environment variables for heroku Use
 # Bucket = os.environ['BUCKET']
 # input_prefix = os.environ['PREFIX']
@@ -90,8 +86,8 @@ async def upload_pdfs(state_name: str, file_list: list[UploadFile] = File(...),a
            
     
 
-##==>Enable for Heroku
-# if __name__ == '__main__':
-#     port = int(os.environ.get('PORT', 5000))
-#     import uvicorn
-#     uvicorn.run(app, host='0.0.0.0', port=port)
+#==>Enable for Heroku
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    import uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=port)
