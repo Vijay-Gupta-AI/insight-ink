@@ -1,0 +1,22 @@
+{
+    "Exemption Certificate-None-None": {
+        "prompt1": "What is the Authority number or Permit number?",
+        "prompt2": "What is the seller's or cardholder or vendor name?",
+        "prompt3": "What is the seller's address?",
+        "prompt4": "What is the purchaser or exempt organization's name?",
+        "prompt5": "What is the address of the exempt organization/purchaser?",
+        "prompt6": "What are the numbers underneath ST-121?",
+        "prompt7": "Blanket certificate",
+        "prompt8": "What is the date issued?"
+    },
+    "Exemption Certificate-NY-ST-121-NY": {
+        "prompt1": "What is the Authority number or Permit number?",
+        "prompt2": "What is the seller's or cardholder or vendor name?",
+        "prompt3": "What is the seller's address?",
+        "prompt4": "What is the purchaser or exempt organization's name?",
+        "prompt5": "What is the address of the exempt organization/purchaser?",
+        "prompt6": "What are the numbers underneath ST-121?",
+        "prompt7": "Blanket certificate",
+        "prompt8": "What is the date issued?"
+    }
+}
